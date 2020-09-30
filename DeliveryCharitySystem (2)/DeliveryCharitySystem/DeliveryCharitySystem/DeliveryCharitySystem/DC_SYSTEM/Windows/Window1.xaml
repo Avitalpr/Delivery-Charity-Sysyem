@@ -1,0 +1,74 @@
+﻿<Window x:Class="DC_SYSTEM.Windows.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:local="clr-namespace:DC_SYSTEM.Windows" xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:m="clr-namespace:DC_SYSTEM.ViewModels" mc:Ignorable="d" 
+
+        Title="Window1" Height="450" Width="800">
+
+
+    <Window.Resources>
+        <m:AdultViewModel x:Key="adultMV"/>
+    </Window.Resources>
+
+    <Grid DataContext="{Binding Source={StaticResource adultMV}}">
+        <Grid Background="#CEAA6A">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="38*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+            <StackPanel  HorizontalAlignment="Center" Margin="0,30,0,-0.4" Grid.RowSpan="2" Width="300">
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center"  Margin="0 20 0 0">
+                    <TextBox x:Name="IdTextBox" HorizontalAlignment="Center"  HorizontalContentAlignment="Left" FlowDirection="RightToLeft" MaterialDesign:HintAssist.Hint="תעודת זהות"  
+                         Text="{Binding adultM.Id, Mode=TwoWay }"    VerticalAlignment="Center" Width="90"/>
+                    <MaterialDesign:PackIcon Kind="IceCream" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Margin="0 20 0 0">
+
+                    <TextBox x:Name="FirstNameTextBox" HorizontalAlignment="Center"  HorizontalContentAlignment="Left" FlowDirection="RightToLeft" MaterialDesign:HintAssist.Hint="שם פרטי"  
+                         Text="{Binding adultM.FirstName, Mode=TwoWay}"    VerticalAlignment="Center" Width="90"/>
+
+
+
+                    <MaterialDesign:PackIcon Kind="Account" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Margin="0 20 0 0">
+                    <TextBox x:Name="LastNameTextBox" HorizontalAlignment="Center"  HorizontalContentAlignment="Left" FlowDirection="RightToLeft"
+                              Text="{Binding adultM.LastName}" MaterialDesign:HintAssist.Hint="שם משפחה" VerticalAlignment="Center" Width="90"/>
+                    <MaterialDesign:PackIcon Kind="Account" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Margin="0 20 0 0">
+                    <TextBox x:Name="PhoneNumTextBox" HorizontalAlignment="Center"  HorizontalContentAlignment="Left" 
+                              Text="{Binding adultM.PhoneNumber}" FlowDirection="RightToLeft" MaterialDesign:HintAssist.Hint="טלפון" VerticalAlignment="Center" Width="90"/>
+                    <MaterialDesign:PackIcon Kind="Telephone" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  Margin="0 30 0 0">
+                    <TextBox x:Name="CityNumTextBox" HorizontalAlignment="Center"  HorizontalContentAlignment="Left" FlowDirection="RightToLeft" MaterialDesign:HintAssist.Hint="עיר"
+                              Text="{Binding adultM.City}" VerticalAlignment="Center" Width="90"/>
+                    <MaterialDesign:PackIcon Kind="CityVariant" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <TextBox x:Name="NumberTextBox" HorizontalAlignment="Center"  HorizontalContentAlignment="Left" FlowDirection="RightToLeft" MaterialDesign:HintAssist.Hint="מספר"
+                             Text="{Binding adultM.Number}" VerticalAlignment="Center" Width="90"/>
+                    <MaterialDesign:PackIcon Kind="Home" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                    <TextBox x:Name="StreetTextBox" HorizontalAlignment="Center"  HorizontalContentAlignment="Left" FlowDirection="RightToLeft" MaterialDesign:HintAssist.Hint="רחוב"
+                              Text="{Binding adultM.Street}" VerticalAlignment="Center" Width="90"/>
+                    <MaterialDesign:PackIcon Kind="AddressMarker" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="center"  Margin="0 40 50 0" Width="235">
+                    <CheckBox x:Name="food" Content="מזון" HorizontalAlignment="Right"   FlowDirection="RightToLeft"  
+                              IsChecked="{Binding adultM.Food}" Width="100" Height="40" Background="#FFF34721" />
+                    <MaterialDesign:PackIcon Kind="Restaurant" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                    <CheckBox x:Name="medicines" Content="תרופות" HorizontalAlignment="Stretch"  
+                            IsChecked="{Binding adultM.Medicine}"   FlowDirection="RightToLeft"  Width="100" Height="40"/>
+                    <MaterialDesign:PackIcon Kind="Medicine" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                </StackPanel>
+            </StackPanel>
+            <Button Content="שמור" Grid.Row="1"  HorizontalAlignment="Left" Margin="93,0,0,28.6" Width="108" />
+        </Grid>
+
+    </Grid>
+</Window>
